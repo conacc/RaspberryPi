@@ -1,4 +1,5 @@
-# spaceJam.py
+# chameleonSpaceJam.py
+# @conacc 29/03/2022
 from sense_hat import SenseHat
 import RPi.GPIO as GPIO  
 from time import sleep    # For pausing
@@ -34,7 +35,7 @@ while True:
     red, green, blue, clear = sense.colour.colour # readings scaled to 0-256
     print(f"R: {red}, G: {green}, B: {blue}, C: {clear}")
     
-    # Set LED to 
+    # Set LED to observed colour
     i = (red,green,blue)
     screen = [
                 i, i, i, i, i, i, i, i,
@@ -45,11 +46,7 @@ while True:
                 i, i, i, i, i, i, i, i,
                 i, i, i, i, i, i, i, i,
                 i, i, i, i, i, i, i, i,
-            ]
-    
+            ]  
     sense.set_pixels(screen)
     sleep(7)            
-    sense.clear()    
-
-    sleep(1)                
-
+    sense.clear()
